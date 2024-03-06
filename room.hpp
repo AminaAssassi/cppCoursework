@@ -21,6 +21,6 @@ public:
     void AddExit(std::string compassDirection, Room *pRoom);
     std::string GetDescription();
     std::vector<Item> GetItems();
-    Room* GetExit(std::string direction);
+    Room* GetExit(const std::string& compassDirection)const;
 
 };

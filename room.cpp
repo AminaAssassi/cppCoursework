@@ -13,6 +13,7 @@ void Room::removeItem(const Item& item)
 void Room::AddExit(std::string compassDirection, Room *pRoom)
 {
     std::cout<<"adding an exit to the room"<<std::endl;
+    exits[compassDirection]=pRoom;
 }
 
 std::string Room::GetDescription()
@@ -25,4 +26,13 @@ std::vector<Item> Room::GetItems()
 {
     std::cout<<"returns the items in the room"<<std::endl;
     return items;
+}
+
+Room* Room::GetExit(const std:: string& compassDirection)const {
+    auto it = exits.find(compassDirection);
+    if (it != exits.end()){
+        return it ->second; //returns the pointer to the exit room
+    }else{
+        return nullptr; //No exit in the given direction
+    }
 }
