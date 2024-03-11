@@ -2,7 +2,10 @@
 
 void Room::AddItem(const Item& item)
 {
-    std::cout << " i added an item" << std::endl;
+    items.push_back(item);
+    std::cout << "Added item: "<< item.GetName()<< " to the room" << std::endl;
+    //std::cout << " i added an item" << std::endl;
+
 }
 
 void Room::removeItem(const Item& item)
@@ -18,13 +21,17 @@ void Room::AddExit(std::string compassDirection, Room *pRoom)
 
 std::string Room::GetDescription()
 {
-    std::cout<<"returns the room description"<<std::endl;
+    //std::cout<<"returns the room description"<<std::endl;
     return description;
 }
 
-std::vector<Item> Room::GetItems()
+std::vector<Item> Room::GetItems()const
 {
     std::cout<<"returns the items in the room"<<std::endl;
+    //print each item in the vector
+    //for (const auto& item : items) {
+    //    std::cout << item << std::endl;
+    //}
     return items;
 }
 

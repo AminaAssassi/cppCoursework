@@ -16,4 +16,9 @@ public:
     //void Interact();
     std::string GetName()const;
     std::string GetDescription()const;
+
+    friend std::ostream& operator<<(std::ostream& os, const Item& item){
+        os<<"Name: " << item.Name << ", Description: " << item.Description;
+        return os;
+    }
 };

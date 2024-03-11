@@ -21,9 +21,11 @@ int main() {
     //create Items
     Item key("key", "A shiny key that looks important");
     Item sword("sword", "A sharp sword");
+    Item rock("rock","a small pebble");
 
     //Add items to rooms
     startRoom.AddItem(key);
+    hallway.AddItem(rock);
     treasureRoom.AddItem(sword);
 
     //create a player
@@ -36,14 +38,19 @@ int main() {
     while(true){
         std::cout<<"current Location: "<< player.GetLocation()->GetDescription() << std::endl;
         std::cout<<"Items in the room: "<<std::endl;
+        for (const Item& item : player.GetLocation()-> GetItems()){
+            std::cout<<"entered the loop"<<std::endl;
+            std::cout << "-"<<item.GetName() <<":" << item.GetDescription()<<std::endl;
+
+        }
         /*for (const Item& item : player.GetLocation() -> GetItems()) {
             std::cout<<"-"<<item.GetName() << ": " <<item.GetDescription() << std::endl;
         }*/
 
-        for (int i= i=0; i<player.GetLocation() ->GetItems().size();i++){
-           std::cout<<"-"<<player.GetLocation()->GetItems()[i].GetName() << ":" << player.GetLocation()->GetItems()[i].GetDescription() <<std::endl;
+        //for (int i= i=0; i<player.GetLocation() ->GetItems().size();i++){
+        //   std::cout<<"-"<<player.GetLocation()->GetItems()[i].GetName() << ":" << player.GetLocation()->GetItems()[i].GetDescription() <<std::endl;
 
-        }
+        //}
         std::cout << "options: ";
         std::cout << "1. Look around | ";
         std::cout << "2. Interact with an item | ";

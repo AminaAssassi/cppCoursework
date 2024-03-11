@@ -11,7 +11,7 @@ void Character::TakeDamage(int damage)
 
 void Player::setLocation(Room *location)
 {
-    std::cout <<"This is where the players location is set"<<std::endl;
+    //std::cout <<"This is where the players location is set"<<std::endl;
     this->location=location;
 }
 

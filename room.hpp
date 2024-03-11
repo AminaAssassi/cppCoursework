@@ -20,7 +20,7 @@ public:
     void removeItem(const Item& item);
     void AddExit(std::string compassDirection, Room *pRoom);
     std::string GetDescription();
-    std::vector<Item> GetItems();
+    std::vector<Item> GetItems()const;
     Room* GetExit(const std::string& compassDirection)const;
 
 };
