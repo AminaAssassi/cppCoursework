@@ -39,7 +39,7 @@ int main() {
         std::cout<<"current Location: "<< player.GetLocation()->GetDescription() << std::endl;
         std::cout<<"Items in the room: "<<std::endl;
         for (const Item& item : player.GetLocation()-> GetItems()){
-            std::cout<<"entered the loop"<<std::endl;
+            //std::cout<<"entered the loop"<<std::endl;
             std::cout << "-"<<item.GetName() <<":" << item.GetDescription()<<std::endl;
 
         }

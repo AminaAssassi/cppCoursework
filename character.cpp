@@ -17,6 +17,6 @@ void Player::setLocation(Room *location)
 
 Room* Player::GetLocation()
 {
-    std::cout<<"this is where the players location is printed"<<std::endl;
+    //std::cout<<"this is where the players location is printed"<<std::endl;
     return location;
 }

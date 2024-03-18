@@ -27,7 +27,7 @@ std::string Room::GetDescription()
 
 std::vector<Item> Room::GetItems()const
 {
-    std::cout<<"returns the items in the room"<<std::endl;
+    //std::cout<<"returns the items in the room"<<std::endl;
     //print each item in the vector
     //for (const auto& item : items) {
     //    std::cout << item << std::endl;
