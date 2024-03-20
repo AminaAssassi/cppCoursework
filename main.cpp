@@ -71,7 +71,7 @@ int main() {
 
             for (Item& item : player.GetLocation() -> GetItems()) {
                 if (item.GetName() == itemName) {
-                    //item.Interact();
+                    item.Interact();
                     break;
                 }
             }

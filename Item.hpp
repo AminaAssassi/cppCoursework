@@ -13,7 +13,7 @@ public:
         Name=name;
         Description=desc;
     };
-    //void Interact();
+    void Interact();
     std::string GetName()const;
     std::string GetDescription()const;
 

@@ -1,9 +1,11 @@
 #include "Item.hpp"
 
-//void Item::Interact()
-//{
-//    std::cout << "Something about an interaction"<<std::endl;
-//}
+void Item::Interact()
+{
+
+    std::cout << "Something about an interaction"<<std::endl;
+
+}
 
 std::string Item::GetName()const
 {
