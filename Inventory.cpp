@@ -14,10 +14,10 @@ void Inventory::addItem(Item* item){
     }
 }
 
-void Inventory::displayItems() const{
+void Inventory::displayInventory() const{
     std::cout<<"Player inventory: "<<std::endl;
-    for (const Item& item : items){
-        std::cout <<"-"<< item.GetName()<<std::endl;
+    for (const Item* item : items){
+        std::cout <<"-"<< item->GetName()<<std::endl;
     }
     //implement logic to display the items in the inventory
 }
@@ -36,10 +36,10 @@ void Inventory::useItem(Item* item){
     //implement code to use an item on a target object
 }
 
-void setCapacity(int maxCapacity){
+void Inventory::setCapacity(int maxCapacity){
     capacity = maxCapacity;
 }
 
-int getCapacity() {
+int Inventory::getCapacity() {
     return capacity;
 }

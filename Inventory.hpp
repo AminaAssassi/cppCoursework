@@ -14,10 +14,14 @@ public:
     Inventory(int maxCapacity) : capacity(maxCapacity){}
     void addItem(Item* item);
 
-    void displayItems() const;
+    void displayInventory() const;
 
     void removeItem(Item* item);
 
     void useItem(Item* item);
+
+    void setCapacity(int maxCapacity);
+
+    int getCapacity();
 
 };

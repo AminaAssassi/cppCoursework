@@ -4,6 +4,7 @@
 //#include "room.hpp"
 //#include "Item.hpp"
 #include "character.hpp"
+#include "Inventory.hpp"
 
 
 int main() {
@@ -33,6 +34,8 @@ int main() {
     Player player("Alice", 100);
     player.setLocation(&startRoom);
 
+    //creating an instance of the inventory class
+    Inventory playerInventory(10);
 
     //Game loop (basic interaction)
     while(true){
@@ -55,7 +58,8 @@ int main() {
         std::cout << "1. Look around | ";
         std::cout << "2. Interact with an item | ";
         std::cout << "3. Move to another room | ";
-        std::cout << "4. Quit" << std::endl;
+        std::cout << "4. Inventory options | " ;
+        std::cout << "5. Quit" << std::endl;
 
         int choice;
         std::cin >> choice;
@@ -88,7 +92,61 @@ int main() {
             } else {
                 std::cout<< "You can't go that way. " << std::endl;
             }
-        } else if (choice == 4){
+        } else if (choice == 4) {
+            //display inventory options
+            //display inventory items
+            //add item
+            //remove item
+            // use item
+            std::cout << "options: ";
+            std::cout << "1. Display inventory | ";
+            std::cout << "2. Add an item | ";
+            std::cout << "3. Remove an item | ";
+            std::cout << "4. Use an item | "<<std::endl;
+
+            int choice;
+            std::cin >> choice;
+
+            if (choice == 1){
+                std::cout<<"code to display the inventory"<<std::endl;
+                playerInventory.displayInventory();
+
+            }else if (choice==2){
+                std::cout<<"enter the name of the item you wnat to add to your inventory: ";
+                std::string itemName;
+                std::cin>>itemName;
+
+                //search for the item in the current room's inventory
+                Item* currentItem=nullptr;
+                for (Item& item : player.GetLocation()->GetItems()){
+                    if (item.GetName() == itemName){
+                        currentItem=&item;
+                        break;
+                    }
+                }
+
+                if (currentItem != nullptr){
+                    playerInventory.addItem(currentItem);
+                    std::cout<<"Added "<<currentItem->GetName()<<"to your inventory."<<std::endl;
+                    //a feature could be added where when an item is added to the inventory it is removed from the room
+                }else {
+                    std::cout<<"Item not found in the room. " <<std::endl;
+                }
+
+                std::cout<<"code to add an item to the inventory"<<std::endl;
+
+            }else if (choice ==3){
+                std::cout<<"code to remove an item from the inventory"<<std::endl;
+
+            }else if (choice == 4){
+                std::cout<<"code to display the inventory"<<std::endl;
+
+            }else{
+                std::cout<<"invalid choice. try again"<<std::endl;
+
+            }
+
+        }else if (choice == 5){
             //Quit the game
             std::cout<<"Goodbye! " <<std::endl;
             break;
