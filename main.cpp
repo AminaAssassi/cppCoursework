@@ -112,22 +112,25 @@ int main() {
                 playerInventory.displayInventory();
 
             }else if (choice==2){
-                std::cout<<"enter the name of the item you wnat to add to your inventory: ";
+                std::cout<<"enter the name of the item you want to add to your inventory: ";
                 std::string itemName;
                 std::cin>>itemName;
 
                 //search for the item in the current room's inventory
+                Item thing;
                 Item* currentItem=nullptr;
                 for (Item& item : player.GetLocation()->GetItems()){
                     if (item.GetName() == itemName){
                         currentItem=&item;
+                        thing=*currentItem;
                         break;
                     }
                 }
-
+                std::cout<<thing.GetName()<<std::endl;
+                currentItem=&thing;
                 if (currentItem != nullptr){
                     playerInventory.addItem(currentItem);
-                    std::cout<<"Added "<<currentItem->GetName()<<"to your inventory."<<std::endl;
+                    //std::cout<<"Added "<<currentItem->GetName()<<" to your inventory."<<std::endl; just a testing command
                     //a feature could be added where when an item is added to the inventory it is removed from the room
                 }else {
                     std::cout<<"Item not found in the room. " <<std::endl;
@@ -137,6 +140,29 @@ int main() {
 
             }else if (choice ==3){
                 std::cout<<"code to remove an item from the inventory"<<std::endl;
+                std::cout<<"enter the name of the item you want to remove from your inventory: ";
+                std::string itemName;
+                std::cin>>itemName;
+
+                Item thing;
+                Item* itemToRemove = nullptr;
+                for (Item& item : player.GetLocation()->GetItems()){
+                    if (item.GetName()==itemName){
+                        itemToRemove = &item;
+                        thing= *itemToRemove;
+                        break;
+                    }
+                }
+                std::cout<<thing.GetName()<<std::endl;
+                itemToRemove=&thing;
+                if (itemToRemove != nullptr){
+                    playerInventory.removeItem(itemToRemove);
+                }else{
+                    std::cout<<"Item not found in inventory"<<std::endl;
+                }
+
+
+
 
             }else if (choice == 4){
                 std::cout<<"code to display the inventory"<<std::endl;

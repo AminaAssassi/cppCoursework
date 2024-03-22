@@ -12,7 +12,9 @@ public:
     Item(const std::string& name, const std::string& desc){
         Name=name;
         Description=desc;
+
     };
+    Item(){};
     void Interact();
     std::string GetName()const;
     std::string GetDescription()const;

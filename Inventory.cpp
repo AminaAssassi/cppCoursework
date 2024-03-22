@@ -22,9 +22,9 @@ void Inventory::displayInventory() const{
     //implement logic to display the items in the inventory
 }
 void Inventory::removeItem(Item* item){
-    auto it=std::find(items.begin(), items.end(), item);
-    if (it != items.end()){
-        items.erase(it);
+    auto it=std::find(items.begin(), items.end(), item); //change code to lok for the object and not the pointer
+    if (it != items.end()){ //if the item is found
+        items.erase(it); //removes the item from the items vector
         std::cout<<"Removed "<<item->GetName()<<"from the inventory"<<std::endl;
     }else{
         std::cout<<"Item not found in inventory "<<std::endl;
