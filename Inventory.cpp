@@ -43,3 +43,7 @@ void Inventory::setCapacity(int maxCapacity){
 int Inventory::getCapacity() {
     return capacity;
 }
+
+std::vector<Item*>& Inventory::getItems(){
+    return items;
+}

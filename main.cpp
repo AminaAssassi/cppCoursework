@@ -144,7 +144,7 @@ int main() {
                 std::string itemName;
                 std::cin>>itemName;
 
-                Item thing;
+                /*Item thing;
                 Item* itemToRemove = nullptr;
                 for (Item& item : player.GetLocation()->GetItems()){
                     if (item.GetName()==itemName){
@@ -152,20 +152,31 @@ int main() {
                         thing= *itemToRemove;
                         break;
                     }
-                }
+                 }
                 std::cout<<thing.GetName()<<std::endl;
                 itemToRemove=&thing;
                 if (itemToRemove != nullptr){
                     playerInventory.removeItem(itemToRemove);
                 }else{
                     std::cout<<"Item not found in inventory"<<std::endl;
+                }*/
+                Item* itemToRemove = nullptr;
+                for (Item* item : playerInventory.getItems()){
+                    if (item->GetName()==itemName){
+                        itemToRemove=item;
+                        break;
+                    }
+                }
+                if (itemToRemove != nullptr){
+                    playerInventory.removeItem(itemToRemove);
+                }else{
+                    std::cout <<"Item not found in inventory"<<std::endl;
                 }
 
 
 
-
             }else if (choice == 4){
-                std::cout<<"code to display the inventory"<<std::endl;
+                std::cout<<"calls function to use the item"<<std::endl;
 
             }else{
                 std::cout<<"invalid choice. try again"<<std::endl;

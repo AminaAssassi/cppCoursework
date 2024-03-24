@@ -24,4 +24,6 @@ public:
 
     int getCapacity();
 
+    std::vector<Item*>& getItems();
+
 };
