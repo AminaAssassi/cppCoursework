@@ -33,6 +33,22 @@ void Inventory::removeItem(Item* item){
 }
 
 void Inventory::useItem(Item* item){
+    auto it = std::find(items.begin(), items.end(), item);
+    if (it != items.end()){
+        std::cout<< "using " <<item->GetName() <<" ...."<<std::endl;
+
+        items.erase(it);
+        if (item->GetName()=="key") {
+            std::cout << "you used your " << item->GetName() << " to unlock a door which has a monster behind it." << std::endl;
+        }else if (item-> GetName()=="sword"){
+            std::cout << " you used your " << item->GetName() << " to protect yourself from the monster that was running towards you. " <<std::endl;
+        }else{
+            std::cout << " you used your " << item->GetName() << " to break the wall to escape " <<std::endl;
+        }
+        std::cout<<"you used " <<item->GetName()<<"."<<std::endl;
+    }else{
+        std::cout<< "item not found in inventory." << std::endl;
+    }
     //implement code to use an item on a target object
 }
 

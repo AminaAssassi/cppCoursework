@@ -177,7 +177,23 @@ int main() {
 
             }else if (choice == 4){
                 std::cout<<"calls function to use the item"<<std::endl;
+                std::cout<<"enter the name of the item you want to use from your inventory: ";
+                std::string itemName;
+                std::cin>>itemName;
 
+                //use the rest of the code from remove item to finish
+                Item* itemToUse = nullptr;
+                for (Item* item : playerInventory.getItems()){
+                    if (item->GetName()==itemName){
+                        itemToUse=item;
+                        break;
+                    }
+                }
+                if (itemToUse != nullptr){
+                    playerInventory.useItem(itemToUse);
+                }else{
+                    std::cout <<"Item not found in inventory"<<std::endl;
+                }
             }else{
                 std::cout<<"invalid choice. try again"<<std::endl;
 
