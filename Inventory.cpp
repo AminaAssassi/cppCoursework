@@ -4,8 +4,8 @@ int capacity;
 
 
 void Inventory::addItem(Item* item){
-    if(items.size()<capacity) {
-        items.push_back(item);
+    if(items.size()<capacity) { //if the inventory isn't at maximum capacity
+        items.push_back(item); //add the item to the inventory
         std::cout << "Added " << item->GetName() << " to the inventory. " << std::endl;
     }else {
         std::cout << "Inventory is full. Cannot add " << item->GetName() << "." << std::endl;
@@ -14,11 +14,11 @@ void Inventory::addItem(Item* item){
 
 void Inventory::displayInventory() const{
     std::cout<<"Player inventory: "<<std::endl;
-    for (const Item* item : items){
-        std::cout <<"-"<< item->GetName()<<std::endl;
+    for (const Item* item : items){ //for all of the items in the inventory
+        std::cout <<"-"<< item->GetName()<<std::endl; //print out the items name
     }
-    //implement logic to display the items in the inventory
 }
+
 void Inventory::removeItem(Item* item){
     auto it=std::find(items.begin(), items.end(), item); //change code to lok for the object and not the pointer
     if (it != items.end()){ //if the item is found
@@ -27,15 +27,14 @@ void Inventory::removeItem(Item* item){
     }else{
         std::cout<<"Item not found in inventory "<<std::endl;
     }
-    //implement code to remove an item from inventory
 }
 
 void Inventory::useItem(Item* item){
-    auto it = std::find(items.begin(), items.end(), item);
-    if (it != items.end()){
+    auto it = std::find(items.begin(), items.end(), item); //looks for the item in the inventory
+    if (it != items.end()){ //if the item is part of the inventory
         std::cout<< "using " <<item->GetName() <<" ...."<<std::endl;
 
-        items.erase(it);
+        items.erase(it); //removes the item from the inventory
         if (item->GetName()=="key") {
             std::cout << "you used your " << item->GetName() << " to unlock a door which has a monster behind it." << std::endl;
         }else if (item-> GetName()=="sword"){
@@ -47,17 +46,16 @@ void Inventory::useItem(Item* item){
     }else{
         std::cout<< "item not found in inventory." << std::endl;
     }
-    //implement code to use an item on a target object
 }
 
 void Inventory::setCapacity(int maxCapacity){
-    capacity = maxCapacity;
+    capacity = maxCapacity; //sets the capacity for the inventory
 }
 
 int Inventory::getCapacity() {
-    return capacity;
+    return capacity; //gets the capacity for the inventory
 }
 
 std::vector<Item*>& Inventory::getItems(){
-    return items;
+    return items; //returns the items in the inventory
 }

@@ -94,36 +94,34 @@ int main() {
             std::cout << "4. Use an item | "<<std::endl;
 
             int choice;
-            std::cin >> choice;
+            std::cin >> choice; //user enters their choice from the menu
 
             if (choice == 1){
                 std::cout<<"code to display the inventory"<<std::endl;
-                playerInventory.displayInventory();
+                playerInventory.displayInventory(); //calling the displayInventory function
 
             }else if (choice==2){
                 std::cout<<"enter the name of the item you want to add to your inventory: ";
                 std::string itemName;
-                std::cin>>itemName;
+                std::cin>>itemName; //user enters the item they want to add to the inventory
 
                 //search for the item in the current room's inventory
                 Item thing;
                 Item* currentItem=nullptr;
-                for (Item& item : player.GetLocation()->GetItems()){
-                    if (item.GetName() == itemName){
-                        currentItem=&item;
-                        thing=*currentItem;
+                for (Item& item : player.GetLocation()->GetItems()){ //loops through the items in the players location
+                    if (item.GetName() == itemName){ //checks if the item in the room is the same as the item the player wants to add to the inventory
+                        currentItem=&item; //passes by reference the item into a variable currentItem
+                        thing=*currentItem; //passes a pointer to currentItem to variable thing
                         break;
                     }
                 }
                 std::cout<<thing.GetName()<<std::endl;
                 currentItem=&thing;
                 if (currentItem != nullptr){
-                    playerInventory.addItem(currentItem);
+                    playerInventory.addItem(currentItem); //calling the addItem function
                 }else {
                     std::cout<<"Item not found in the room. " <<std::endl;
                 }
-
-                //std::cout<<"code to add an item to the inventory"<<std::endl;
 
             }else if (choice ==3){
                 std::cout<<"code to remove an item from the inventory"<<std::endl;
@@ -148,14 +146,14 @@ int main() {
                     std::cout<<"Item not found in inventory"<<std::endl;
                 }*/
                 Item* itemToRemove = nullptr;
-                for (Item* item : playerInventory.getItems()){
-                    if (item->GetName()==itemName){
-                        itemToRemove=item;
+                for (Item* item : playerInventory.getItems()){ //loops through the items in the players inventory
+                    if (item->GetName()==itemName){ //if the item the player wants to remove is in the players inventory
+                        itemToRemove=item; //assigns item to variable itemToRemove
                         break;
                     }
                 }
                 if (itemToRemove != nullptr){
-                    playerInventory.removeItem(itemToRemove);
+                    playerInventory.removeItem(itemToRemove); //calls removeItem function
                 }else{
                     std::cout <<"Item not found in inventory"<<std::endl;
                 }
@@ -168,14 +166,14 @@ int main() {
 
                 //use the rest of the code from remove item to finish
                 Item* itemToUse = nullptr;
-                for (Item* item : playerInventory.getItems()){
-                    if (item->GetName()==itemName){
-                        itemToUse=item;
+                for (Item* item : playerInventory.getItems()){ //loops through the items in the players inventory
+                    if (item->GetName()==itemName){ //checks if the item the player wants to use is equal to the item in the inventory
+                        itemToUse=item; //assigns item to itemToUse variable
                         break;
                     }
                 }
                 if (itemToUse != nullptr){
-                    playerInventory.useItem(itemToUse);
+                    playerInventory.useItem(itemToUse); //calling useItem function
                 }else{
                     std::cout <<"Item not found in inventory"<<std::endl;
                 }
