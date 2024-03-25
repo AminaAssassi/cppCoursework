@@ -46,14 +46,7 @@ int main() {
             std::cout << "-"<<item.GetName() <<":" << item.GetDescription()<<std::endl;
 
         }
-        /*for (const Item& item : player.GetLocation() -> GetItems()) {
-            std::cout<<"-"<<item.GetName() << ": " <<item.GetDescription() << std::endl;
-        }*/
 
-        //for (int i= i=0; i<player.GetLocation() ->GetItems().size();i++){
-        //   std::cout<<"-"<<player.GetLocation()->GetItems()[i].GetName() << ":" << player.GetLocation()->GetItems()[i].GetDescription() <<std::endl;
-
-        //}
         std::cout << "options: ";
         std::cout << "1. Look around | ";
         std::cout << "2. Interact with an item | ";
@@ -93,11 +86,7 @@ int main() {
                 std::cout<< "You can't go that way. " << std::endl;
             }
         } else if (choice == 4) {
-            //display inventory options
-            //display inventory items
-            //add item
-            //remove item
-            // use item
+
             std::cout << "options: ";
             std::cout << "1. Display inventory | ";
             std::cout << "2. Add an item | ";
@@ -130,13 +119,11 @@ int main() {
                 currentItem=&thing;
                 if (currentItem != nullptr){
                     playerInventory.addItem(currentItem);
-                    //std::cout<<"Added "<<currentItem->GetName()<<" to your inventory."<<std::endl; just a testing command
-                    //a feature could be added where when an item is added to the inventory it is removed from the room
                 }else {
                     std::cout<<"Item not found in the room. " <<std::endl;
                 }
 
-                std::cout<<"code to add an item to the inventory"<<std::endl;
+                //std::cout<<"code to add an item to the inventory"<<std::endl;
 
             }else if (choice ==3){
                 std::cout<<"code to remove an item from the inventory"<<std::endl;
@@ -172,8 +159,6 @@ int main() {
                 }else{
                     std::cout <<"Item not found in inventory"<<std::endl;
                 }
-
-
 
             }else if (choice == 4){
                 std::cout<<"calls function to use the item"<<std::endl;

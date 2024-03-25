@@ -2,10 +2,8 @@
 
 void Room::AddItem(const Item& item)
 {
-    items.push_back(item);
+    items.push_back(item); //inserts 'item' object to the end of the vector 'items'
     std::cout << "Added item: "<< item.GetName()<< " to the room" << std::endl;
-    //std::cout << " i added an item" << std::endl;
-
 }
 
 void Room::removeItem(const Item& item)
@@ -16,23 +14,17 @@ void Room::removeItem(const Item& item)
 void Room::AddExit(std::string compassDirection, Room *pRoom)
 {
     std::cout<<"adding an exit to the room"<<std::endl;
-    exits[compassDirection]=pRoom;
+    exits[compassDirection]=pRoom; //adding an exit from current room to another room in the specified compass direction by updating the 'exits' map accordingly
 }
 
 std::string Room::GetDescription()
 {
-    //std::cout<<"returns the room description"<<std::endl;
-    return description;
+    return description; //returns the description of the room as a string
 }
 
 std::vector<Item> Room::GetItems()const
 {
-    //std::cout<<"returns the items in the room"<<std::endl;
-    //print each item in the vector
-    //for (const auto& item : items) {
-    //    std::cout << item << std::endl;
-    //}
-    return items;
+    return items; //returns all of the items that are present in the room
 }
 
 Room* Room::GetExit(const std:: string& compassDirection)const {

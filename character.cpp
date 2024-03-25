@@ -1,7 +1,7 @@
 #include "character.hpp"
 
 Player::Player(const std::string& name, int health):Character(name,health){
-    location=nullptr;
+    location=nullptr; //sets the players initial location to nullptr
 }
 
 void Character::TakeDamage(int damage)
@@ -11,12 +11,10 @@ void Character::TakeDamage(int damage)
 
 void Player::setLocation(Room *location)
 {
-    //std::cout <<"This is where the players location is set"<<std::endl;
-    this->location=location;
+    this->location=location; //updates the players location to the room specified by the location argument
 }
 
 Room* Player::GetLocation()
 {
-    //std::cout<<"this is where the players location is printed"<<std::endl;
-    return location;
+    return location; //returns a pointer to the room where the player is currently located
 }

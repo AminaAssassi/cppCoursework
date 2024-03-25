@@ -2,9 +2,7 @@
 
 int capacity;
 
-//Implement ihe addItem function
-//Implement logic to add an item to the players inventory
-//Implement logic to use an item on a target object
+
 void Inventory::addItem(Item* item){
     if(items.size()<capacity) {
         items.push_back(item);
