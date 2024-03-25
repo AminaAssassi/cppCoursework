@@ -1,8 +1,5 @@
 #include <iostream>
 #include <vector>
-//#include <map>
-//#include "room.hpp"
-//#include "Item.hpp"
 #include "character.hpp"
 #include "Inventory.hpp"
 
